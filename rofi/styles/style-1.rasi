@@ -1,0 +1,124 @@
+configuration {
+    lines:               10;
+    columns:             2;
+    font:                "JetBrainsMono Nerd Font 12";
+    fixed-num-lines:     true;
+    sidebar-mode:        true;
+    separator-style:     "none";
+    hide-scrollbar:      true;
+    fullscreen:          false;
+    fake-transparency:   false;
+    click-to-exit:       true;
+    window-format:       "[{w}] · {c} · {t}";
+}
+
+/* Import the generated colors file */
+@import "colors/colors.rasi"
+
+/* General settings */
+* {
+    background-color:    @background;
+    text-color:          @foreground;
+}
+
+/* Window styling */
+window {
+    border:             0px;
+    border-radius:      12px;
+    padding:            40;
+    width:              50%;
+    height:             50%;
+}
+
+/* Prompt styling */
+prompt {
+    text-color:         @color1;
+}
+
+/* Entry styling */
+entry {
+    text-color:         @foreground;
+}
+
+/* Listview styling */
+listview {
+    fixed-height:       0;
+    spacing:            4px;
+    scrollbar:          false;
+    padding:            4px 0px 0px;
+}
+
+/* Element styling */
+element {
+    padding:            1px;
+}
+
+element normal.normal {
+    background-color:   @background;
+    text-color:         @foreground;
+}
+
+element normal.urgent {
+    background-color:   @background;
+    text-color:         @color2;
+}
+
+element normal.active {
+    background-color:   @background;
+    text-color:         @color3;
+}
+
+element selected.normal {
+    background-color:   @background;
+    text-color:         @color1;
+}
+
+element selected.urgent {
+    background-color:   @background;
+    text-color:         @color2;
+}
+
+element selected.active {
+    background-color:   @background;
+    text-color:         @color1;
+}
+
+element alternate.normal {
+    background-color:   @background;
+    text-color:         @foreground;
+}
+
+element alternate.urgent {
+    background-color:   @background;
+    text-color:         @foreground;
+}
+
+element alternate.active {
+    background-color:   @background;
+    text-color:         @foreground;
+}
+
+/* Sidebar styling */
+sidebar {
+    border:             0px;
+    border-radius:      20px;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    width:              4px;
+    handle-color:       @foreground;
+    handle-width:       8px;
+}
+
+/* Message styling */
+message {
+    border:             0px;
+    padding:            1px;
+}
+
+/* Textbox styling */
+textbox {
+    text-color:         @foreground;
+}
+

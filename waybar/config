@@ -1,0 +1,48 @@
+{
+  "layer": "overlay",
+  "position": "top",
+  "margin-top": 10,
+  "margin-right": 20,
+  "margin-left": 20,
+  "height": 30,
+  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory", "pulseaudio", "network", "tray"],
+  "clock": {
+    "format": "\uf43a  {:%H:%M %p}"
+  },
+  "cpu": {
+    "format": "\uf4bc  {usage}%"
+  },
+  "memory": {
+    "format": "\uefc5  {percentage}%"
+  },
+  "pulseaudio": {
+    "format": "\uf025  {volume}%",
+    "scroll-step": 5
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "\udb82\udd2f",
+      "\udb82\udd1f",
+      "\udb82\udd22",
+      "\udb82\udd25",
+      "\udb82\udd28"
+    ],
+    "format-ethernet": "\udb80\ude01",
+    "format-alt": "\udb81\udda9",
+    "format-disconnected": "\udb82\udd2d",
+    "tooltip-format-wifi": "{icon} {essid}\n\udb85\udeb6 {bandwidthDownBytes} \udb85\udeba {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "\udb80\ude01  {ifname}\n\udb85\udeb6 {bandwidthDownBytes} \udb85\udeba {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 5,
+    "nospacing": 1
+  },
+  "sway/window": {
+    "hide-if-empty": true,
+    "format": "{title}"
+  },
+  "style": "~/.config/waybar/style.css" 
+}
+
