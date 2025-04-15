@@ -168,6 +168,16 @@ require('lazy').setup({
     },
     config = function()
       require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = {
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
+            },
+            n = {
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -387,6 +397,7 @@ require('lazy').setup({
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        css = { 'prettier' },
       },
     },
   },
@@ -571,7 +582,63 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
-
+  {
+    'folke/trouble.nvim',
+    opts = {
+      modes = {
+        qflist_float = {
+          mode = 'qflist',
+          win = {
+            type = 'float',
+            relative = 'editor',
+            border = 'rounded',
+            title = 'Quickfix',
+            title_pos = 'center',
+            position = { 0, -2 },
+            size = { width = 0.8, height = 0.8 },
+            zindex = 200,
+          },
+        },
+        preview_float = {
+          mode = 'diagnostics',
+          win = {
+            type = 'float',
+            relative = 'editor',
+            border = 'rounded',
+            title = 'Trouble Diagnostics',
+            title_pos = 'center',
+            position = { 0, -2 },
+            size = { width = 0.8, height = 0.8 },
+            zindex = 200,
+          },
+        },
+      },
+      icons = {
+        indent = {
+          middle = ' ',
+          last = ' ',
+          top = ' ',
+          ws = '│  ',
+        },
+      },
+      keys = {
+        ['<esc>'] = 'close',
+      },
+    },
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>x',
+        '<cmd>Trouble preview_float toggle<cr>',
+        desc = 'Toggle floating diagnostics (Trouble)',
+      },
+      {
+        '<leader>q',
+        '<cmd>Trouble qflist_float toggle<cr>',
+        desc = 'Toggle floating quickfix (Trouble)',
+      },
+    },
+  },
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
