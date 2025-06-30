@@ -12,7 +12,7 @@ link_starship() {
 }
 
 link_tmux() {
-  ln -sf ~/dotfiles/tmux ~/.config/tmux
+  ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 }
 
 link_wallust() {
