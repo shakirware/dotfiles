@@ -8,7 +8,7 @@ link_zsh() {
 
 link_starship() {
   mkdir -p ~/.config
-  ln -sf ~/dotfiles/starship/.config/starship.toml ~/.config/starship.toml
+  ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 }
 
 link_tmux() {
