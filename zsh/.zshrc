@@ -1,0 +1,1 @@
+/home/shakir/.config/.zshrc
