@@ -147,4 +147,6 @@ export PATH=$PATH:/Users/shakir/Library/Android/sdk/emulator
 export PATH=$PATH:/Users/shakir/Library/Android/sdk/emulator:/Users/shakir/Library/Android/sdk/platform-tools
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
-
+av() {
+  aws-vault exec "$1" -- zsh
+}

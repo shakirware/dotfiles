@@ -8,6 +8,7 @@ format = """
 $os\
 $username\
 $directory\
+$aws\
 $git_branch\
 $git_commit\
 $git_status\
@@ -421,4 +422,11 @@ style = "fg:color_other"
 format = '( [$symbol $output]($style) )'
 when = '[ "${STARSHIP_COCKPIT_KEYBOARD_LAYOUT_ENABLED:-false}" = "true" ]'
 shell = "sh"
+disabled = false
+
+[aws]
+symbol = " "
+style = "bold fg:color_env"
+format = '( [$symbol($profile)(@$region)]($style) )'
+force_display = false
 disabled = false
