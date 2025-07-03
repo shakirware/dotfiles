@@ -84,6 +84,8 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(starship init zsh)"
 
+eval "$(zoxide init zsh --cmd cd)"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
