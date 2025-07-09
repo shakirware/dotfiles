@@ -96,6 +96,22 @@ require('lazy').setup({
     },
   },
   {
+    'rmagatti/auto-session',
+    opts = {
+      log_level = 'error',
+      auto_session_enable_last_session = true,
+      auto_session_root_dir = vim.fn.stdpath 'data' .. '/sessions/',
+      auto_session_enabled = true,
+      auto_save_enabled = true,
+      auto_restore_enabled = true,
+      session_lens = {
+        load_on_setup = true,
+        theme_conf = { border = true },
+        previewer = true,
+      },
+    },
+  },
+  {
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -328,6 +344,11 @@ require('lazy').setup({
             },
           },
         },
+        sqls = {
+          root_dir = function()
+            return vim.loop.cwd()
+          end,
+        },
         -- rust_analyzer = {},
         ts_ls = {},
         lua_ls = {
@@ -398,6 +419,7 @@ require('lazy').setup({
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
         css = { 'prettier' },
+        sql = { 'pg_format' },
       },
     },
   },
