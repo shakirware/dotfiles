@@ -1,7 +1,7 @@
 * {
   font-family: "JetBrainsMono Nerd Font", sans-serif;
   font-size: 13px;
-  color: #FCFAF3;
+  color: #fcfaf3;
 }
 
 #waybar {
@@ -16,7 +16,7 @@
   background: #141616;
   border-radius: 30px;
   padding: 2px 10px;
-  margin: 0 5px; 
+  margin: 0 5px;
 }
 
 #window {
@@ -40,7 +40,7 @@
   background: #141616;
   border-radius: 30px;
   padding: 2px 10px;
-  margin-left: 10px; 
+  margin-left: 10px;
   margin-right: 10px;
 }
 
@@ -90,3 +90,25 @@
   margin-right: 10px;
 }
 
+/* ---- Group 3: Battery + Backlight ---- */
+#battery,
+#backlight {
+  background: #141616;
+  border-radius: 0;
+  padding: 2px 15px;
+  margin: 0;
+}
+
+#battery {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-left: 10px;
+  margin-right: -1px;
+}
+
+#backlight {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: -1px;
+  margin-right: 10px;
+}

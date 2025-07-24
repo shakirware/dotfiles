@@ -7,7 +7,7 @@
   "height": 30,
   "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "pulseaudio", "network", "tray"],
+  "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "backlight", "tray"],
   "clock": {
     "format": "\uf43a  {:%H:%M %p}"
   },
@@ -42,6 +42,16 @@
   "sway/window": {
     "hide-if-empty": true,
     "format": "{title}"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "hide-if-empty": true
+  },
+  "backlight": {
+    "format": " {percent}%",
+    "hide-if-empty": true
   },
   "style": "~/.config/waybar/style.css" 
 }
