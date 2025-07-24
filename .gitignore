@@ -1,8 +1,1 @@
-# Ignore symlinked config targets
-alacritty/alacritty
-rofi/rofi
-sway/sway
-tmux/tmux
-tmux/tmux.conf
-wallust/wallust
-waybar/waybar
+**/.tmux/plugins
