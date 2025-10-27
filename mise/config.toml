@@ -1,0 +1,25 @@
+[tools]
+node = 'system'
+bun = 'latest'
+python = 'latest'
+lua = 'latest'
+go = "latest"
+stylua = 'latest'
+neovim = 'latest'
+starship = 'latest'
+jq = 'latest'
+zoxide = 'latest'
+fzf = 'latest'
+aws-cli = 'latest'
+aws-vault = 'latest'
+
+[settings]
+idiomatic_version_file_enable_tools = ['node', 'go', 'python']
+trusted_config_paths = ['/Users/shakir/Documents/']
+experimental = true
+auto_install = true
+legacy_version_file = true
+
+[hooks]
+enter = "mise install --quiet"
+
