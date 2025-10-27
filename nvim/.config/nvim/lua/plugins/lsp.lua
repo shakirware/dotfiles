@@ -103,6 +103,7 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      -- LSP server configs
       local servers = {
         ts_ls = {},
         pyright = {
@@ -111,22 +112,36 @@ return {
         lua_ls = {
           settings = { Lua = { completion = { callSnippet = 'Replace' } } },
         },
-        -- Postgres LSP (reads postgrestools.jsonc automatically)
         postgres_lsp = {
           filetypes = { 'sql', 'pgsql', 'plpgsql', 'psql' },
         },
       }
 
-      local ensure = vim.tbl_keys(servers)
-      vim.list_extend(ensure, {
+      -- Map LSP servers to their Mason package names
+      local mason_pkg_for = {
+        ts_ls = 'typescript-language-server',
+        pyright = 'pyright',
+        lua_ls = 'lua-language-server',
+      }
+
+      -- Extra tools
+      local extra_tools = {
         'stylua',
         'postgrestools',
-      })
-      require('mason-tool-installer').setup { ensure_installed = ensure }
+        'black',
+        'isort',
+        'prettier',
+        'pgformatter',
+      }
+      local ensure_tools = vim.tbl_values(mason_pkg_for)
+      vim.list_extend(ensure_tools, extra_tools)
+      require('mason-tool-installer').setup {
+        ensure_installed = ensure_tools,
+      }
 
-      -- Setup servers via mason-lspconfig
+      local ensure_servers = vim.tbl_keys(mason_pkg_for)
       require('mason-lspconfig').setup {
-        ensure_installed = vim.tbl_keys(servers),
+        ensure_installed = ensure_servers,
         handlers = {
           function(name)
             local server = servers[name] or {}
@@ -135,6 +150,10 @@ return {
           end,
         },
       }
+
+      require('lspconfig').postgres_lsp.setup(vim.tbl_deep_extend('force', {
+        capabilities = capabilities,
+      }, servers.postgres_lsp))
     end,
   },
 }

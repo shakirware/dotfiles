@@ -2,10 +2,10 @@
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold   = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-size   = 11.0
+size   = 12.0
 
 [window]
-opacity = 0.8  # Set window transparency
+opacity = 0.85  # Set window transparency
 
 [colors.primary]
 background = "#141616"
