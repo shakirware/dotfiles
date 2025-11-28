@@ -97,6 +97,27 @@ require('lazy').setup({
     },
   },
   {
+    'tpope/vim-fugitive',
+    dependencies = { 'tpope/vim-rhubarb' },
+    keys = {
+      { '<leader>go', ':.<C-u>GBrowse<CR>', mode = 'n', desc = 'Open GitHub link (current line)' },
+      { '<leader>gy', ':.<C-u>GBrowse!<CR>', mode = 'n', desc = 'Yank GitHub link (current line)' },
+
+      { '<leader>go', ":'<,'>GBrowse<CR>", mode = 'v', desc = 'Open GitHub link (selection)' },
+      { '<leader>gy', ":'<,'>GBrowse!<CR>", mode = 'v', desc = 'Yank GitHub link (selection)' },
+    },
+  },
+  {
+    'sindrets/diffview.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory' },
+    keys = {
+      { '<leader>gv', ':DiffviewOpen<CR>', mode = 'n', desc = 'Diffview: HEAD vs index' },
+      { '<leader>gq', ':DiffviewClose<CR>', mode = 'n', desc = 'Diffview: close' },
+    },
+  },
+
+  {
     'rmagatti/auto-session',
     opts = {
       log_level = 'error',
@@ -284,8 +305,10 @@ require('lazy').setup({
         python = { 'isort', 'black' },
         yaml = { 'prettier' },
         json = { 'prettier' },
+        jsonc = { 'prettier' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
+        graphql = { 'prettier' },
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
         css = { 'prettier' },
@@ -552,7 +575,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
