@@ -100,9 +100,7 @@ return {
       })
 
       -- Capabilities
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
+      local capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), require('cmp_nvim_lsp').default_capabilities())
       -- LSP server configs
       local servers = {
         ts_ls = {},
@@ -116,6 +114,16 @@ return {
           filetypes = { 'sql', 'pgsql', 'plpgsql', 'psql' },
         },
       }
+
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+      })
+
+      for name, conf in pairs(servers) do
+        vim.lsp.config(name, conf)
+      end
+
+      vim.lsp.enable(vim.tbl_keys(servers))
 
       -- Map LSP servers to their Mason package names
       local mason_pkg_for = {
@@ -133,27 +141,16 @@ return {
         'prettier',
         'pgformatter',
       }
+
       local ensure_tools = vim.tbl_values(mason_pkg_for)
       vim.list_extend(ensure_tools, extra_tools)
       require('mason-tool-installer').setup {
         ensure_installed = ensure_tools,
       }
 
-      local ensure_servers = vim.tbl_keys(mason_pkg_for)
       require('mason-lspconfig').setup {
-        ensure_installed = ensure_servers,
-        handlers = {
-          function(name)
-            local server = servers[name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[name].setup(server)
-          end,
-        },
+        ensure_installed = vim.tbl_keys(mason_pkg_for),
       }
-
-      require('lspconfig').postgres_lsp.setup(vim.tbl_deep_extend('force', {
-        capabilities = capabilities,
-      }, servers.postgres_lsp))
     end,
   },
 }

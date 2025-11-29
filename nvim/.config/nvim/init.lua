@@ -304,6 +304,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         yaml = { 'prettier' },
+        yml = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
         javascript = { 'prettier' },

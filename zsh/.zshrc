@@ -1,3 +1,10 @@
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=200000
+SAVEHIST=200000
+setopt APPEND_HISTORY INC_APPEND_HISTORY SHARE_HISTORY EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS HIST_SAVE_NO_DUPS HIST_FIND_NO_DUPS HIST_REDUCE_BLANKS
+setopt HIST_FCNTL_LOCK
+
 if [[ -z "$TMUX" ]]; then
   # Reuse existing session if one exists, otherwise create a new one
   if tmux has-session 2>/dev/null; then
@@ -27,6 +34,7 @@ zinit light-mode for \
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light larkery/zsh-histdb
 
 
 bindkey "^[[A" history-substring-search-up
