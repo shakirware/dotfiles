@@ -92,11 +92,11 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym Page_Up exec grim -g "$(slurp)" - | wl-copy
 
-# Decrease by 10%
-bindsym XF86MonBrightnessDown exec brightnessctl --device='intel_backlight' set 10%-
+# Decrease by 1%
+bindsym XF86MonBrightnessDown exec brightnessctl --device='intel_backlight' set 1%-
 
-# Increase by 10%
-bindsym XF86MonBrightnessUp   exec brightnessctl --device='intel_backlight' set +10%
+# Increase by 1%
+bindsym XF86MonBrightnessUp   exec brightnessctl --device='intel_backlight' set +1%
 
 # Application launchers
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
@@ -121,6 +121,8 @@ output DP-1 pos 1920 0
 workspace 1 output HDMI-A-1
 workspace 2 output DP-1
 output * bg /home/shakir/Pictures/background.jpg fill
+
+exec "brightnessctl set 20%"
 
 include /etc/sway/config.d/*
 
