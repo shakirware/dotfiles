@@ -301,6 +301,10 @@ require('lazy').setup({
         }
       end,
       formatters_by_ft = {
+        nix = { 'nixfmt' },
+        terraform = { 'terraform_fmt' },
+        tf = { 'terraform_fmt' },
+        make = { 'bake' },
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         yaml = { 'prettier' },
@@ -314,6 +318,13 @@ require('lazy').setup({
         typescriptreact = { 'prettier' },
         css = { 'prettier' },
         sql = { 'pg_format' },
+      },
+      formatters = {
+        bake = {
+          command = 'mbake',
+          args = { 'format', '$FILENAME' },
+          stdin = false,
+        },
       },
     },
   },
@@ -497,6 +508,13 @@ require('lazy').setup({
         'javascript',
         'typescript',
         'sql',
+        'nix',
+        'terraform',
+        'hcl',
+        'yaml',
+        'json',
+        'regex',
+        'make',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,

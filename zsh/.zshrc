@@ -56,3 +56,7 @@ av() {
 
 
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/home/shakir/.local/bin"
+export SOPS_AGE_KEY_FILE="$HOME/.config/mise/age.txt"
+export EDITOR="nvim"
