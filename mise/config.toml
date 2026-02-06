@@ -10,7 +10,6 @@ starship = 'latest'
 jq = 'latest'
 zoxide = 'latest'
 fzf = 'latest'
-aws-cli = 'latest'
 aws-vault = 'latest'
 
 [settings]

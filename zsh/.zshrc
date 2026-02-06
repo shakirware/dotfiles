@@ -54,6 +54,7 @@ av() {
   aws-vault exec "$1" -- zsh
 }
 
+alias mi='fd package.json --exec mise exec --cd={//} -- npm install'
 
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

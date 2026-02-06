@@ -316,6 +316,7 @@ require('lazy').setup({
         graphql = { 'prettier' },
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
+        html = { 'prettier' },
         css = { 'prettier' },
         sql = { 'pg_format' },
       },
