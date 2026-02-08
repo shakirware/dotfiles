@@ -89,10 +89,11 @@ bindsym $mod+Shift+r mode "resize"
 
 # Multimedia and screenshot keys
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -1%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +1%
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym Page_Up exec grim -g "$(slurp)" - | wl-copy
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 # Application launchers
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
@@ -106,12 +107,12 @@ bindsym XF86MonBrightnessUp   exec brightnessctl --device='intel_backlight' set 
 
 # mpv
 for_window [app_id="mpv"] floating enable, sticky enable, resize set 640 360, move position 1260 30
-bindsym $mod+Shift+p [app_id="mpv"] opacity 0.60
+bindsym $mod+Shift+p [app_id="mpv"] opacity 0.25
 bindsym $mod+Shift+o [app_id="mpv"] opacity 1.0
 
 # Appearance settings
 gaps inner 10
-gaps outer 20
+gaps outer 10
 default_border pixel 2
 
 # Start bar

@@ -10,7 +10,6 @@
 #waybar {
   background: transparent;
   border: none;
-  margin: 10px 20px 0 20px;
 }
 
 label {
@@ -210,4 +209,26 @@ tooltip label {
   background: @outline;
   margin: 6px 8px;
   min-height: 1px;
+}
+
+window#waybar.mprisbar {
+  background: transparent;
+  border: none;
+  margin: 0 20px 10px 20px;
+}
+
+window#waybar.mprisbar #mpris {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 30px;
+  padding: 2px 12px;
+  margin: 0 5px;
+}
+
+window#waybar.mprisbar.empty {
+  opacity: 0;
+}
+window#waybar.mprisbar.empty * {
+  padding: 0;
+  margin: 0;
 }
