@@ -1,33 +1,14 @@
+[general]
+import = [
+  "~/.config/alacritty/colors-static.toml",
+  "~/.cache/matugen/alacritty-colors.toml"
+]
+
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold   = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-size   = 12.0
+size   = 11.0
 
 [window]
-opacity = 0.85  # Set window transparency
-
-[colors.primary]
-background = "#141616"
-foreground = "#FCFAF3"
-
-[colors.normal]
-black   = "#3B3E3E"
-red     = "#C1A1BE"
-green   = "#624F6B"
-yellow  = "#7A755F"
-blue    = "#509ADA"
-magenta = "#C1A1BE"
-cyan    = "#F5F0DC"
-white   = "#F2EFE5"
-
-[colors.bright]
-black   = "#A9A7A0"
-red     = "#C1A1BE"
-green   = "#624F6B"
-yellow  = "#7A755F"
-blue    = "#509ADA"
-magenta = "#C1A1BE"
-cyan    = "#F5F0DC"
-white   = "#F2EFE5"
-
+opacity = 0.8

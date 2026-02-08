@@ -8,7 +8,12 @@
 
   "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "backlight", "tray"],
+  "modules-right": ["cpu", "memory", "pulseaudio", "network", "group/batlight", "tray"],
+
+  "group/batlight": {
+    "orientation": "horizontal",
+    "modules": ["battery", "backlight"]
+  },
 
   "clock": {
     "format": "  {:%a %d %b %Y %H:%M}",

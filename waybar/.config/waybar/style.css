@@ -1,148 +1,212 @@
-window#waybar,
-window#waybar * {
+@import "matugen.css";
+
+* {
   font-family: "JetBrainsMono Nerd Font", sans-serif;
   font-size: 13px;
-  color: #fcfaf3;
+  color: @fg;
 }
 
 #waybar {
   background: transparent;
   border: none;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 10px;
-  padding: 4px 0;
+  margin: 10px 20px 0 20px;
 }
 
-#workspaces button,
-#window,
-#clock,
-#tray,
-#cpu,
-#memory,
-#pulseaudio,
-#network,
-#battery,
-#backlight {
-  background: #141616;
-}
-
-#workspaces button {
-  border-radius: 30px;
-  padding: 2px 10px;
-  margin: 0 5px;
-}
-#workspaces button.focused {
-  background: #2a2c2c;
-}
-
-#window {
-  border-radius: 30px;
-  padding: 2px 10px;
-  margin: 0 5px;
-}
-#waybar.empty #window {
-  background: none;
-}
-
-#clock {
-  border-radius: 30px;
-  padding: 2px 10px;
-}
-
-#tray {
-  border-radius: 30px;
-  padding: 2px 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-#tray image {
-  padding: 0 4px;
-}
-#tray > .passive {
-  opacity: 0.6;
-}
-
-#cpu,
-#memory {
-  border-radius: 0;
-  padding: 2px 15px;
-  margin: 0;
-}
-#cpu {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  margin-left: 10px;
-  border-right: 1px solid #2a2c2c;
-}
-#memory {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  margin-right: 10px;
-}
-
-#pulseaudio,
-#network {
-  border-radius: 0;
-  padding: 2px 15px;
-  margin: 0;
-}
-#pulseaudio {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  margin-left: 10px;
-  border-right: 1px solid #2a2c2c;
-}
-#network {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  margin-right: 10px;
-}
-
-#battery,
-#backlight {
-  border-radius: 0;
-  padding: 2px 15px;
-  margin: 0;
-}
-#battery {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  margin-left: 10px;
-  border-right: 1px solid #2a2c2c;
-}
-#backlight {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  margin-right: 10px;
-}
-
-#battery.warning {
-  color: #f0c674;
-}
-#battery.critical {
-  color: #cc6666;
-}
-#network.disconnected {
-  color: #cc6666;
-}
-#pulseaudio.muted {
-  color: #cc6666;
-}
-
-menu,
-menuitem {
-  background-color: #141616;
-  color: #fcfaf3;
-}
-menuitem:hover {
-  background-color: #2a2c2c;
-  color: #fcfaf3;
+label {
+  padding: 0;
 }
 
 tooltip {
-  background: #141616;
-  color: #fcfaf3;
+  background: transparent;
+  border: none;
+}
+
+tooltip label {
+  background: @surface;
+  color: @fg;
+  border: 1px solid @outline;
+  border-radius: 14px;
+  padding: 8px 10px;
+  margin: 6px;
+}
+
+#clock,
+#tray,
+#window,
+#workspaces button {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 30px;
+  padding: 2px 12px;
+  margin: 0 5px;
+}
+
+#workspaces {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces button {
+  transition:
+    background 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease;
+}
+
+#workspaces button:hover {
+  background: @surface2;
+}
+
+#workspaces button.focused {
+  background: @accent;
+  color: @bg;
+  border-color: @accent;
+}
+
+#workspaces button.urgent {
+  background: @urgent;
+  color: @bg;
+  border-color: @urgent;
+}
+
+#window {
+  transition:
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+#waybar.empty #window {
+  background: transparent;
+  border-color: transparent;
+}
+
+#clock {
+  margin: 0 8px;
+}
+
+#cpu,
+#memory {
+  background: @surface;
+  border-top: 1px solid @outline;
+  border-bottom: 1px solid @outline;
+  padding: 2px 14px;
+  margin: 0;
+}
+
+#cpu {
+  border-left: 1px solid @outline;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-left: 10px;
+  margin-right: -1px;
+}
+
+#memory {
+  border-right: 1px solid @outline;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: -1px;
+  margin-right: 10px;
+}
+
+#pulseaudio,
+#network {
+  background: @surface;
+  border-top: 1px solid @outline;
+  border-bottom: 1px solid @outline;
+  padding: 2px 14px;
+  margin: 0;
+}
+
+#pulseaudio {
+  border-left: 1px solid @outline;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-left: 10px;
+  margin-right: -1px;
+}
+
+#network {
+  border-right: 1px solid @outline;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: -1px;
+  margin-right: 10px;
+}
+
+#pulseaudio.muted {
+  background: @surface2;
+}
+
+#batlight {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0;
+}
+
+#batlight #battery,
+#batlight #backlight {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 2px 14px;
+}
+
+#batlight #backlight {
+  border-left: 1px solid @outline;
+}
+
+#batlight #battery.charging,
+#batlight #battery.plugged {
+  color: @accent;
+}
+
+#batlight #battery.critical:not(.charging) {
+  color: @urgent;
+}
+
+#tray {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+  opacity: 0.85;
+}
+
+#tray > .active {
+  opacity: 1;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  opacity: 1;
+}
+
+#tray menu {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 14px;
+  padding: 6px;
+}
+
+#tray menu menuitem {
+  color: @fg;
   border-radius: 10px;
-  padding: 8px;
+  padding: 6px 10px;
+}
+
+#tray menu menuitem:hover {
+  background: @surface2;
+}
+
+#tray menu separator {
+  background: @outline;
+  margin: 6px 8px;
+  min-height: 1px;
 }
