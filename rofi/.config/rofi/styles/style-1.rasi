@@ -12,35 +12,55 @@ configuration {
     window-format:       "[{w}] · {c} · {t}";
 }
 
-/* Import the generated colors file */
-@import "colors/colors.rasi"
+@import "~/.cache/matugen/rofi.rasi"
 
-/* General settings */
 * {
     background-color:    @background;
     text-color:          @foreground;
+    border-color:        @outline;
+    spacing:             8;
 }
 
-/* Window styling */
 window {
-    border:             0px;
-    border-radius:      12px;
-    padding:            40;
-    width:              50%;
-    height:             50%;
+    border:              1px;
+    border-color:        @outline;
+    border-radius:       12px;
+    padding:             40;
+    width:               50%;
+    height:              50%;
 }
 
-/* Prompt styling */
+mainbox {
+    children: [ inputbar, message, listview, sidebar ];
+    spacing: 12px;
+}
+
+inputbar {
+    background-color: @surface;
+    border:           1px;
+    border-color:     @outline;
+    border-radius:    12px;
+    padding:          10px 12px;
+    spacing:          10px;
+}
+
 prompt {
-    text-color:         @color1;
+    text-color: @color1;
 }
 
-/* Entry styling */
 entry {
-    text-color:         @foreground;
+    text-color: @foreground;
 }
 
-/* Listview styling */
+message {
+    border: 0px;
+    padding: 1px;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
 listview {
     fixed-height:       0;
     spacing:            4px;
@@ -48,9 +68,9 @@ listview {
     padding:            4px 0px 0px;
 }
 
-/* Element styling */
 element {
-    padding:            1px;
+    padding:            8px 10px;
+    border-radius:      10px;
 }
 
 element normal.normal {
@@ -69,18 +89,18 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color:   @background;
-    text-color:         @color1;
+    background-color:   @surface2;
+    text-color:         @foreground;
 }
 
 element selected.urgent {
-    background-color:   @background;
+    background-color:   @surface2;
     text-color:         @color2;
 }
 
 element selected.active {
-    background-color:   @background;
-    text-color:         @color1;
+    background-color:   @surface2;
+    text-color:         @foreground;
 }
 
 element alternate.normal {
@@ -98,27 +118,21 @@ element alternate.active {
     text-color:         @foreground;
 }
 
-/* Sidebar styling */
+element-text {
+    text-color: inherit;
+}
+
 sidebar {
-    border:             0px;
-    border-radius:      20px;
+    background-color: @background;
+    border: 0px;
+    border-radius: 20px;
 }
 
-/* Scrollbar styling */
 scrollbar {
-    width:              4px;
-    handle-color:       @foreground;
-    handle-width:       8px;
+    width: 4px;
 }
 
-/* Message styling */
-message {
-    border:             0px;
-    padding:            1px;
+scrollbar handle {
+    background-color: @foreground;
+    border-radius: 999px;
 }
-
-/* Textbox styling */
-textbox {
-    text-color:         @foreground;
-}
-
