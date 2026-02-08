@@ -5,54 +5,66 @@
   "margin-right": 20,
   "margin-left": 20,
   "height": 30,
+
   "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
   "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "backlight", "tray"],
+
   "clock": {
-    "format": "\uf43a  {:%H:%M %p}"
+    "format": "  {:%a %d %b %Y %H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y %H:%M:%S %Z}"
   },
+
   "cpu": {
-    "format": "\uf4bc  {usage}%"
+    "format": "  {usage}%",
+    "tooltip": true
   },
+
   "memory": {
-    "format": "\uefc5  {percentage}%"
+    "format": "  {percentage}%",
+    "tooltip": true
   },
+
   "pulseaudio": {
-    "format": "\uf025  {volume}%",
-    "scroll-step": 5
+    "format": "  {volume}%",
+    "format-muted": "  muted",
+    "scroll-step": 5,
+    "tooltip": true
   },
+
   "network": {
-    "format-wifi": "{icon}",
-    "format-icons": [
-      "\udb82\udd2f",
-      "\udb82\udd1f",
-      "\udb82\udd22",
-      "\udb82\udd25",
-      "\udb82\udd28"
-    ],
-    "format-ethernet": "\udb80\ude01",
-    "format-alt": "\udb81\udda9",
-    "format-disconnected": "\udb82\udd2d",
-    "tooltip-format-wifi": "{icon} {essid}\n\udb85\udeb6 {bandwidthDownBytes} \udb85\udeba {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "\udb80\ude01  {ifname}\n\udb85\udeb6 {bandwidthDownBytes} \udb85\udeba {bandwidthUpBytes}",
+    "format-wifi": "{icon} {signalStrength}%",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󰤮",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": "{essid}\nDown: {bandwidthDownBytes}  Up: {bandwidthUpBytes}\nIP: {ipaddr}",
+    "tooltip-format-ethernet": "{ifname}\nDown: {bandwidthDownBytes}  Up: {bandwidthUpBytes}\nIP: {ipaddr}",
     "tooltip-format-disconnected": "Disconnected",
-    "interval": 5,
-    "nospacing": 1
+    "interval": 5
   },
+
   "sway/window": {
     "hide-if-empty": true,
     "format": "{title}"
   },
+
   "battery": {
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
     "format-icons": ["", "", "", "", ""],
+    "tooltip": true,
     "hide-if-empty": true
   },
+
   "backlight": {
     "format": " {percent}%",
+    "tooltip": true,
     "hide-if-empty": true
   },
-  "style": "~/.config/waybar/style.css" 
-}
 
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
