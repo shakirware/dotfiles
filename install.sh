@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 
-cfg=(alacritty nvim rofi sway waybar starship mise wallust zsh tmux)
+cfg=(alacritty keyd matugen mise nvim rofi starship sway tmux waybar zsh)
 
-stow --target="$HOME" "${cfg[@]}"      # preview: add -n after stow
+stow --target="$HOME" "${cfg[@]}"
 echo "Done."

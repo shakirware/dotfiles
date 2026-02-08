@@ -1,0 +1,2 @@
+ttf-jetbrains-mono-nerd
+ttf-recursive-nerd

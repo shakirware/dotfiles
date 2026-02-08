@@ -1,0 +1,36 @@
+# --- essentials ---
+git
+stow
+curl
+wget
+unzip
+zip
+jq
+ripgrep
+fd
+fzf
+
+# --- shell / terminal ---
+zsh
+tmux
+alacritty
+starship
+
+# --- editor ---
+neovim
+
+# --- wayland / sway / bar ---
+sway
+waybar
+rofi-wayland
+wl-clipboard
+grim
+swaybg
+
+# --- networking / vpn ---
+networkmanager
+tailscale
+mullvad-vpn
+
+# --- misc useful ---
+pavucontrol
