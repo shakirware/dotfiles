@@ -126,8 +126,9 @@ workspace 2 output DP-1
 output * bg /home/shakir/Pictures/background.jpg fill
 
 exec "brightnessctl set 20%"
-exec_always --no-startup-id tailscale systray
-exec_always --no-startup-id mullvad-vpn --ozone-platform=wayland --enable-features=WaylandWindowDecorations
+exec --no-startup-id tailscale systray
+exec --no-startup-id mullvad-vpn --ozone-platform=wayland --enable-features=WaylandWindowDecorations
+
 
 include /etc/sway/config.d/*
 
