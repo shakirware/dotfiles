@@ -129,4 +129,4 @@ workspace 2 output DP-1
 include /etc/sway/config.d/*
 
 # Matugen-generated sway colors
-include /home/shakir/.config/sway/colors.conf
+include ~/.cache/matugen/sway-colors.conf

@@ -1,7 +1,7 @@
-@define-color bg #0e1415;
-@define-color fg #dde4e4;
-@define-color surface #0e1415;
-@define-color surface2 #3f4849;
-@define-color accent #80d4db;
+@define-color bg #14140c;
+@define-color fg #e5e3d6;
+@define-color surface #14140c;
+@define-color surface2 #47473b;
+@define-color accent #c7cc79;
 @define-color urgent #ffb4ab;
-@define-color outline #899393;
+@define-color outline #929182;
