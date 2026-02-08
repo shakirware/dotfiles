@@ -14,7 +14,7 @@ set $wallpaper /home/shakir/Pictures/background.jpg
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec notify-send "Sway" "Reloaded" ; reload
 
 # Focus movement
 bindsym $mod+$left focus left
@@ -107,6 +107,17 @@ exec waybar
 
 # Generate theme + set wallpaper at login
 exec --no-startup-id matugen image $wallpaper
+
+
+# Toggle Waybar visibility
+bindsym $mod+Shift+b exec --no-startup-id pkill -SIGUSR1 -x waybar
+
+# VPN tray apps
+exec --no-startup-id tailscale systray
+exec --no-startup-id mullvad-vpn
+
+#exec_always sh -lc 'pgrep -f "tailscale systray" >/dev/null || tailscale systray'
+#exec_always sh -lc 'pgrep -f "mullvad" >/dev/null || mullvad-vpn'
 
 # Outputs and workspace assignment
 output HDMI-A-1 pos 0 0
