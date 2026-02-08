@@ -1,0 +1,30 @@
+[config.wallpaper]
+set = true
+pre_hook = "pkill -x swaybg || true"
+command = "swaybg"
+arguments = ["-m", "fill", "-i"]
+
+[templates.waybar]
+input_path  = "~/.config/matugen/templates/waybar.css"
+output_path = "~/.config/waybar/matugen.css"
+post_hook   = "pkill -SIGUSR2 waybar || true"
+
+[templates.rofi]
+input_path  = "~/.config/matugen/templates/rofi.rasi"
+output_path = "~/.cache/matugen/rofi.rasi"
+
+[templates.sway]
+input_path  = "~/.config/matugen/templates/sway-colors.conf"
+output_path = "~/.cache/matugen/sway-colors.conf"
+post_hook   = "swaymsg reload >/dev/null"
+
+[templates.alacritty]
+input_path  = "~/.config/matugen/templates/alacritty-colors.toml"
+output_path = "~/.cache/matugen/alacritty-colors.toml"
+
+[templates.tmux]
+input_path  = "~/.config/matugen/templates/tmux.conf"
+output_path = "~/.cache/matugen/tmux.conf"
+post_hook   = "sh -lc 'tmux source-file ~/.cache/matugen/tmux.conf \\; refresh-client -S >/dev/null 2>&1 || true'"
+
+
