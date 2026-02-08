@@ -1,0 +1,18 @@
+{
+  "name": "mprisbar",
+  "layer": "top",
+  "position": "bottom",
+  "exclusive": true,
+  "margin-bottom": 5,
+  "margin-right": 20,
+  "margin-left": 20,
+  "height": 30,
+  "modules-center": ["mpris"],
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "dynamic-order": ["title", "artist", "position", "length"],
+    "max-length": 80,
+    "interval": 1,
+    "hide-if-empty": true,
+  },
+}

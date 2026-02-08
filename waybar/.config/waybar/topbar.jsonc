@@ -1,0 +1,74 @@
+[
+  {
+    "name": "topbar",
+    "layer": "overlay",
+    "position": "top",
+    "margin-top": 5,
+    "margin-right": 20,
+    "margin-left": 20,
+    "height": 30,
+    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "cpu",
+      "memory",
+      "pulseaudio",
+      "network",
+      "group/batlight",
+      "tray",
+    ],
+    "group/batlight": {
+      "orientation": "horizontal",
+      "modules": ["battery", "backlight"],
+    },
+    "clock": {
+      "format": "  {:%H:%M  %a %d %b}",
+      "tooltip-format": "{:%A, %d %B %Y • %H:%M:%S %Z}",
+    },
+    "cpu": {
+      "format": "  {usage}%",
+      "tooltip": true,
+    },
+    "memory": {
+      "format": "  {percentage}%",
+      "tooltip": true,
+    },
+    "pulseaudio": {
+      "format": "  {volume}%",
+      "format-muted": "  muted",
+      "scroll-step": 5,
+      "tooltip": true,
+    },
+    "network": {
+      "format-wifi": "{icon} {signalStrength}%",
+      "format-ethernet": "󰈀 {ifname}",
+      "format-disconnected": "󰤮",
+      "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+      "tooltip-format-wifi": "{essid}\nDown: {bandwidthDownBytes}  Up: {bandwidthUpBytes}\nIP: {ipaddr}",
+      "tooltip-format-ethernet": "{ifname}\nDown: {bandwidthDownBytes}  Up: {bandwidthUpBytes}\nIP: {ipaddr}",
+      "tooltip-format-disconnected": "Disconnected",
+      "interval": 5,
+    },
+    "sway/window": {
+      "hide-if-empty": true,
+      "format": "{title}",
+    },
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip": true,
+      "hide-if-empty": true,
+    },
+    "backlight": {
+      "format": " {percent}%",
+      "tooltip": true,
+      "hide-if-empty": true,
+    },
+    "tray": {
+      "icon-size": 16,
+      "spacing": 8,
+    },
+  },
+]

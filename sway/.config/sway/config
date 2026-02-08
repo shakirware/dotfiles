@@ -116,11 +116,11 @@ gaps outer 10
 default_border pixel 2
 
 # Start bar
-exec waybar
+exec --no-startup-id waybar -c ~/.config/waybar/topbar.jsonc -s ~/.config/waybar/style.css
+exec --no-startup-id ~/.config/sway/scripts/mprisbar-watch.sh
 
 # Generate theme + set wallpaper at login
 exec --no-startup-id matugen image $wallpaper
-
 
 # Toggle Waybar visibility
 bindsym $mod+Shift+b exec --no-startup-id pkill -SIGUSR1 -x waybar
