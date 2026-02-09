@@ -125,7 +125,11 @@ exec --no-startup-id matugen image $wallpaper
 # Toggle Waybar visibility
 bindsym $mod+Shift+b exec --no-startup-id pkill -SIGUSR1 -x waybar
 
-# VPN tray apps
+# Spotify autostart on workspace 4
+assign [app_id="spotify"] workspace number 4
+exec --no-startup-id spotify-launcher
+
+# tray apps
 exec --no-startup-id tailscale systray
 exec --no-startup-id mullvad-vpn
 exec --no-startup-id blueman-applet
