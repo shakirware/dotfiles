@@ -1,8 +1,7 @@
 [config.wallpaper]
 set = true
 pre_hook = "pkill -x swaybg || true"
-command = "swaybg"
-arguments = ["-m", "fill", "-i"]
+command = "sh -lc \"exec swaybg -m fill -i '{{image}}' >/dev/null 2>&1 &\""
 
 [templates.waybar]
 input_path  = "~/.config/matugen/templates/waybar.css"
@@ -27,4 +26,7 @@ input_path  = "~/.config/matugen/templates/tmux.conf"
 output_path = "~/.cache/matugen/tmux.conf"
 post_hook   = "sh -lc 'tmux source-file ~/.cache/matugen/tmux.conf \\; refresh-client -S >/dev/null 2>&1 || true'"
 
-
+[templates.swaync]
+input_path  = "~/.config/matugen/templates/swaync.css"
+output_path = "~/.config/swaync/style.css"
+post_hook   = "swaync-client -rs >/dev/null 2>&1 || true"

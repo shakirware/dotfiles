@@ -232,3 +232,20 @@ window#waybar.mprisbar.empty * {
   padding: 0;
   margin: 0;
 }
+
+#custom-notification {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 30px;
+  padding: 2px 12px;
+  margin: 0 10px;
+}
+
+#custom-notification:hover {
+  background: @surface2;
+}
+
+#custom-notification.dnd,
+#custom-notification.inhibited {
+  color: @accent;
+}

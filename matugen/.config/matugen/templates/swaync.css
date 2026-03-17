@@ -1,0 +1,188 @@
+@define-color bg {{colors.background.default.hex}};
+@define-color fg {{colors.on_background.default.hex}};
+@define-color surface {{colors.surface.default.hex}};
+@define-color surface2 {{colors.surface_container_high.default.hex}};
+@define-color outline {{colors.outline.default.hex}};
+@define-color accent {{colors.primary.default.hex}};
+@define-color urgent {{colors.error.default.hex}};
+
+/* Reset GTK row/list styling that can cause the pale outer halo */
+list,
+listview,
+row,
+listview row,
+listview row:selected,
+listview row:hover,
+listview row:focus,
+listview row:active,
+.viewport,
+.frame {
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+/* Base */
+* {
+  font-family: "Rec Mono Casual Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
+  color: @fg;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* Notification area wrappers */
+.notification-row {
+  background: transparent;
+  background-image: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification-background {
+  background: transparent;
+  background-image: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.notification {
+  background: transparent;
+  background-image: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 4px 8px;
+  padding: 0;
+}
+
+/* Actual card */
+.notification-content {
+  background: @surface;
+  background-image: none;
+  border: 1px solid @outline;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 10px 12px;
+}
+
+/* Summary/body */
+.summary {
+  font-weight: 700;
+}
+
+.body {
+  color: @fg;
+}
+
+/* App name / time */
+.app-name,
+.time {
+  color: alpha(@fg, 0.75);
+  font-size: 12px;
+}
+
+/* Inline actions */
+.notification-default-action,
+.notification-action {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @surface2;
+  border-radius: 12px;
+}
+
+/* Close button */
+.close-button {
+  background: @surface2;
+  color: @fg;
+  border: none;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.close-button:hover {
+  background: @accent;
+  color: @bg;
+}
+
+/* Progress bars */
+progressbar,
+progress,
+trough {
+  border-radius: 999px;
+  border: none;
+  box-shadow: none;
+}
+
+trough {
+  background: alpha(@outline, 0.25);
+}
+
+progress {
+  background: @accent;
+}
+
+/* Critical notifications */
+.notification.critical .notification-content {
+  border-color: @urgent;
+}
+
+/* Control center shell */
+.control-center {
+  background: alpha(@bg, 0.92);
+  border: 1px solid @outline;
+  border-radius: 22px;
+  box-shadow: none;
+  padding: 12px;
+}
+
+.control-center-list {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Widgets */
+.widget-title,
+.widget-dnd {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.widget-title button,
+.widget-dnd switch {
+  background: @accent;
+  color: @bg;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Optional: make notifications in control center match popup cards */
+.control-center .notification-row,
+.control-center .notification {
+  margin: 4px 0;
+}
+
+.control-center .notification-content {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 16px;
+  box-shadow: none;
+}

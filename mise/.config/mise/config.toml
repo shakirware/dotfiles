@@ -1,11 +1,9 @@
 [tools]
-node = 'system'
 bun = 'latest'
 python = 'latest'
 lua = 'latest'
 go = "latest"
 stylua = 'latest'
-neovim = 'latest'
 starship = 'latest'
 jq = 'latest'
 zoxide = 'latest'

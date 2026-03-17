@@ -51,7 +51,12 @@ eval "$(mise activate zsh)"
 
 
 av() {
-  aws-vault exec "$1" -- zsh
+  local profile="${1:?usage: av <profile>}"
+  (
+    export AWS_PROFILE="$profile"
+    aws sso login --profile "$profile" || return 1
+    exec env AWS_PROFILE="$profile" zsh
+  )
 }
 
 alias mi='fd package.json --exec mise exec --cd={//} -- npm install'
