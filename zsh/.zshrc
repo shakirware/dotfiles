@@ -5,13 +5,8 @@ setopt APPEND_HISTORY INC_APPEND_HISTORY SHARE_HISTORY EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS HIST_SAVE_NO_DUPS HIST_FIND_NO_DUPS HIST_REDUCE_BLANKS
 setopt HIST_FCNTL_LOCK
 
-if [[ -z "$TMUX" ]]; then
-  # Reuse existing session if one exists, otherwise create a new one
-  if tmux has-session 2>/dev/null; then
-    exec tmux attach
-  else
-    exec tmux new -s main
-  fi
+if [[ -z "$TMUX" ]] && command -v tmux >/dev/null; then
+  exec tmux new-session -A -s main
 fi
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
