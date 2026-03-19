@@ -148,6 +148,7 @@ tooltip label {
   padding: 0;
 }
 
+#batlight #power-profiles-daemon,
 #batlight #battery,
 #batlight #backlight {
   background: transparent;
@@ -156,6 +157,11 @@ tooltip label {
   padding: 2px 14px;
 }
 
+#batlight #power-profiles-daemon {
+  min-width: 28px;
+}
+
+#batlight #battery,
 #batlight #backlight {
   border-left: 1px solid @outline;
 }
@@ -167,6 +173,14 @@ tooltip label {
 
 #batlight #battery.critical:not(.charging) {
   color: @urgent;
+}
+
+#batlight #power-profiles-daemon.performance {
+  color: @urgent;
+}
+
+#batlight #power-profiles-daemon.power-saver {
+  color: @accent;
 }
 
 #tray {
@@ -228,6 +242,7 @@ window#waybar.mprisbar #mpris {
 window#waybar.mprisbar.empty {
   opacity: 0;
 }
+
 window#waybar.mprisbar.empty * {
   padding: 0;
   margin: 0;
