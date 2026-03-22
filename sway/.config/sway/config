@@ -111,8 +111,6 @@ for_window [app_id="mpv"] floating enable, sticky enable, resize set 640 360, mo
 bindsym $mod+Shift+p [app_id="mpv"] opacity 0.25
 bindsym $mod+Shift+o [app_id="mpv"] opacity 1.0
 
-# thunderbird
-assign [app_id="thunderbird"] workspace number 9
 
 # Appearance settings
 gaps inner 10
@@ -137,7 +135,8 @@ bindsym $mod+Shift+b exec --no-startup-id pkill -SIGUSR1 -x waybar
 exec --no-startup-id swaync
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
-# Mail and calendar
+# thunderbird
+assign [app_id="org.mozilla.Thunderbird"] workspace number 9
 exec --no-startup-id thunderbird
 
 # tray apps
