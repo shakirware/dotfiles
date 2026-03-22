@@ -1,5 +1,5 @@
 # Sway Configuration
-exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 set $mod Mod1
 set $left h
@@ -145,8 +145,28 @@ exec --no-startup-id mullvad-vpn
 exec --no-startup-id blueman-applet
 # exec --no-startup-id jellyfin-mpv-shim
 
+# SwayFX
+corner_radius 12
 
-# Outputs
+shadows enable
+shadow_blur_radius 20
+shadow_color #00000055
+shadow_inactive_color #00000030
+shadow_offset 0 0
+
+default_dim_inactive 0.04
+
+blur enable
+blur_radius 3
+blur_passes 2
+blur_noise 0.02
+blur_xray disable
+
+for_window [floating] corner_radius 16
+
+for_window [floating] corner_radius 16
+
+for_window [floating] corner_radius 16# Outputs
 output eDP-1 mode 2880x1800@120Hz scale 2 pos 0 0
 output HDMI-A-1 mode 1920x1200@59.950Hz scale 1 pos 1440 0
 output DP-1 mode 1920x1200@59.950Hz scale 1 pos 3360 0

@@ -59,5 +59,10 @@ alias mi='fd package.json --exec mise exec --cd={//} -- npm install'
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/shakir/.local/bin"
+
+if [[ -z "$SWAYSOCK" ]]; then
+  export SWAYSOCK="$(ls /run/user/$(id -u)/sway-ipc.*.sock 2>/dev/null | head -n1)"
+fi
+
 export SOPS_AGE_KEY_FILE="$HOME/.config/mise/age.txt"
 export EDITOR="nvim"
