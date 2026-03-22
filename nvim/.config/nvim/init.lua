@@ -306,7 +306,7 @@ require('lazy').setup({
         tf = { 'terraform_fmt' },
         make = { 'bake' },
         lua = { 'stylua' },
-        python = { 'isort', 'black' },
+        python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
         yaml = { 'prettier' },
         yml = { 'prettier' },
         json = { 'prettier' },

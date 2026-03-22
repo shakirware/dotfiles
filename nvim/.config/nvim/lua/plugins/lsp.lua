@@ -104,8 +104,15 @@ return {
       -- LSP server configs
       local servers = {
         ts_ls = {},
-        pyright = {
-          settings = { python = { analysis = { extraPaths = { 'src' } } } },
+        ruff = {},
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = 'standard',
+              },
+            },
+          },
         },
         lua_ls = {
           settings = { Lua = { completion = { callSnippet = 'Replace' } } },
@@ -114,7 +121,6 @@ return {
           filetypes = { 'sql', 'pgsql', 'plpgsql', 'psql' },
         },
       }
-
       vim.lsp.config('*', {
         capabilities = capabilities,
       })
@@ -128,20 +134,18 @@ return {
       -- Map LSP servers to their Mason package names
       local mason_pkg_for = {
         ts_ls = 'typescript-language-server',
-        pyright = 'pyright',
+        ruff = 'ruff',
+        basedpyright = 'basedpyright',
         lua_ls = 'lua-language-server',
       }
 
-      -- Extra tools
       local extra_tools = {
         'stylua',
         'postgrestools',
-        'black',
-        'isort',
+        'ruff',
         'prettier',
         'pgformatter',
       }
-
       local ensure_tools = vim.tbl_values(mason_pkg_for)
       vim.list_extend(ensure_tools, extra_tools)
       require('mason-tool-installer').setup {
