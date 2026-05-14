@@ -96,6 +96,8 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 bindsym Page_Up exec grim -g "$(slurp)" - | wl-copy
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
+bindsym Shift+Page_Up exec ~/.local/bin/toggle-record-region
+
 # Application launchers
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
 

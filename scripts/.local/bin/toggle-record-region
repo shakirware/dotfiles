@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+pidfile="/tmp/wf-recorder-$USER.pid"
+
+if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+    kill -INT "$(cat "$pidfile")"
+    rm -f "$pidfile"
+    notify-send "Screen recording stopped"
+    exit 0
+fi
+
+geometry="$(slurp)" || exit 0
+outfile="$HOME/Videos/screen-$(date +%Y-%m-%d-%H%M%S).mp4"
+
+wf-recorder -g "$geometry" -f "$outfile" &
+echo $! > "$pidfile"
+
+notify-send "Screen recording started — no audio" "$outfile"
+
