@@ -9,6 +9,7 @@ jq = 'latest'
 zoxide = 'latest'
 fzf = 'latest'
 aws-vault = 'latest'
+node = "22"
 
 [settings]
 idiomatic_version_file_enable_tools = ['node', 'go', 'python']
