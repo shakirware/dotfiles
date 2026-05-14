@@ -9,7 +9,7 @@ set $right l
 set $term alacritty
 set $menu rofi -show drun
 
-set $wallpaper /home/shakir/Pictures/pond_shed.png
+set $wallpaper /home/shakir/Pictures/a_road_with_a_road_in_the_middle_of_a_river.jpg
 
 # Launch terminal and manage windows
 bindsym $mod+Return exec $term
