@@ -16,6 +16,18 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
+if [[ -n "$TMUX" ]]; then
+  _tmux_sync_env() {
+    local v val
+    for v in DISPLAY WAYLAND_DISPLAY XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS SSH_AUTH_SOCK; do
+      val="$(tmux show-environment -g "$v" 2>/dev/null | sed -n "s/^${v}=//p")"
+      [[ -n "$val" ]] && export "$v=$val"
+    done
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd _tmux_sync_env
+fi
+
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 
 autoload -Uz compinit
