@@ -143,26 +143,27 @@ exec --no-startup-id thunderbird
 
 # tray apps
 exec --no-startup-id tailscale systray
-exec --no-startup-id mullvad-vpn
+exec --no-startup-id sh -c 'sleep 5; mullvad-vpn'
 exec --no-startup-id blueman-applet
 # exec --no-startup-id jellyfin-mpv-shim
 
 # SwayFX
 corner_radius 12
 
-shadows enable
-shadow_blur_radius 20
-shadow_color #00000055
-shadow_inactive_color #00000030
-shadow_offset 0 0
+# shadows enable
+# shadow_blur_radius 20
+# shadow_color #00000055
+# shadow_inactive_color #00000030
+# shadow_offset 0 0
 
-default_dim_inactive 0.04
+# default_dim_inactive 0.04
 
-blur enable
-blur_radius 3
-blur_passes 2
-blur_noise 0.02
-blur_xray disable
+blur disable
+# blur enable
+# blur_radius 3
+# blur_passes 2
+# blur_noise 0.02
+# blur_xray disable
 
 for_window [floating] corner_radius 16
 
