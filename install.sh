@@ -1,8 +1,31 @@
 #!/usr/bin/env bash
-set -e
-cd "$(dirname "$0")"
+set -euo pipefail
 
-cfg=(alacritty matugen mise nvim rofi starship sway tmux waybar zsh swaync)
+cd -- "$(dirname -- "$0")"
 
-stow --target="$HOME" "${cfg[@]}"
+cfg=(
+    alacritty
+    kanshi
+    matugen
+    mise
+    nvim
+    portal
+    rofi
+    scripts
+    starship
+    sway
+    swaync
+    swayosd
+    systemd
+    tmux
+    waybar
+    zsh
+)
+
+stow \
+    --target="$HOME" \
+    --restow \
+    --no-folding \
+    "${cfg[@]}"
+
 echo "Done."
