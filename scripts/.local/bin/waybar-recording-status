@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+runtime="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+statedir="$runtime/screen-recorder"
+pidfile="$statedir/pid"
+filefile="$statedir/file"
+
+if [ -s "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+	outfile=""
+	[ -s "$filefile" ] && outfile=$(cat "$filefile")
+	printf '{"text":"󰑊 REC","class":"recording","tooltip":"Recording to %s — click to stop"}\n' \
+		"${outfile:-a file}"
+else
+	printf '{"text":"","class":"idle","tooltip":""}\n'
+fi

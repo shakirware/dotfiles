@@ -16,6 +16,7 @@
     "modules-center": ["clock"],
     "modules-right": [
       "privacy",
+      "custom/recorder",
       "cpu",
       "memory",
       "pulseaudio",
@@ -78,6 +79,15 @@
         { "type": "screenshare", "tooltip": true, "tooltip-icon-size": 20 },
         { "type": "audio-in", "tooltip": true, "tooltip-icon-size": 20 },
       ],
+    },
+    "custom/recorder": {
+      "format": "{}",
+      "return-type": "json",
+      "exec": "~/.local/bin/waybar-recording-status",
+      "interval": "once",
+      "signal": 8,
+      "on-click": "~/.local/bin/toggle-record-region",
+      "tooltip": true,
     },
     "battery": {
       "bat": "BAT0",

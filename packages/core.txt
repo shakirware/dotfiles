@@ -25,6 +25,7 @@ waybar
 rofi-wayland
 wl-clipboard
 grim
+slurp
 swaybg
 matugen
 
@@ -35,8 +36,13 @@ swaylock
 kanshi
 cliphist
 libnotify
+wf-recorder
 power-profiles-daemon
 blueman
+
+# --- screen sharing portals ---
+xdg-desktop-portal
+xdg-desktop-portal-wlr
 
 # --- networking / vpn ---
 networkmanager

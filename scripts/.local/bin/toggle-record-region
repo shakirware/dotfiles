@@ -1,19 +1,87 @@
 #!/usr/bin/env bash
+# usage: toggle-record-region [--audio]
 
-pidfile="/tmp/wf-recorder-$USER.pid"
+set -euo pipefail
 
-if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
-    kill -INT "$(cat "$pidfile")"
-    rm -f "$pidfile"
-    notify-send "Screen recording stopped"
-    exit 0
+runtime="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+statedir="$runtime/screen-recorder"
+pidfile="$statedir/pid"
+filefile="$statedir/file"
+
+waybar_signal=8 # must match custom/recorder "signal" in topbar.jsonc
+inhibitor="screen-recorder"
+
+notify() { command -v notify-send >/dev/null 2>&1 && notify-send "$@" || true; }
+refresh_waybar() { pkill -RTMIN+"$waybar_signal" -x waybar 2>/dev/null || true; }
+inhibit_on() { swaync-client --inhibitor-add "$inhibitor" --skip-wait >/dev/null 2>&1 || true; }
+inhibit_off() { swaync-client --inhibitor-remove "$inhibitor" --skip-wait >/dev/null 2>&1 || true; }
+
+running_pid() {
+	local pid
+	[ -s "$pidfile" ] || return 1
+	pid=$(cat "$pidfile")
+	kill -0 "$pid" 2>/dev/null || return 1
+	printf '%s' "$pid"
+}
+
+if [ "${1:-}" = "__record" ]; then
+	shift
+	outfile=$1
+	shift
+
+	mkdir -p "$statedir"
+
+	# job control, else wf-recorder inherits SIGINT as ignored and cannot be stopped
+	set -m
+	wf-recorder -f "$outfile" "$@" &
+	pid=$!
+	set +m
+	printf '%s\n' "$pid" >"$pidfile"
+	printf '%s\n' "$outfile" >"$filefile"
+
+	inhibit_on
+	refresh_waybar
+	notify "Screen recording started" "$outfile"
+
+	rc=0
+	wait "$pid" || rc=$?
+
+	rm -f "$pidfile" "$filefile"
+	inhibit_off
+	refresh_waybar
+
+	# 130 = stopped with SIGINT
+	if [ "$rc" -eq 0 ] || [ "$rc" -eq 130 ]; then
+		notify "Screen recording saved" "$outfile"
+	else
+		notify -u critical "Screen recording failed" "wf-recorder exited with status $rc"
+	fi
+	exit 0
 fi
 
-geometry="$(slurp)" || exit 0
+if pid=$(running_pid); then
+	kill -INT "$pid" 2>/dev/null || true
+	exit 0
+fi
+
+# stale state from a crashed run
+rm -f "$pidfile" "$filefile"
+
+extra=()
+case "${1:-}" in
+"") ;;
+--audio) extra=(--audio) ;;
+*)
+	printf 'usage: %s [--audio]\n' "${0##*/}" >&2
+	exit 2
+	;;
+esac
+
+geometry=$(slurp) || exit 0
+[ -n "$geometry" ] || exit 0
+
+mkdir -p "$HOME/Videos" "$statedir"
 outfile="$HOME/Videos/screen-$(date +%Y-%m-%d-%H%M%S).mp4"
 
-wf-recorder -g "$geometry" -f "$outfile" &
-echo $! > "$pidfile"
-
-notify-send "Screen recording started — no audio" "$outfile"
-
+setsid --fork "$0" __record "$outfile" -g "$geometry" ${extra+"${extra[@]}"} \
+	</dev/null >/dev/null 2>&1

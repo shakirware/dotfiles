@@ -228,7 +228,8 @@ tooltip label {
 /* Contextual modules */
 #mode,
 #scratchpad,
-#privacy {
+#privacy,
+#custom-recorder {
   background: @surface;
   border: 1px solid @outline;
   border-radius: 30px;
@@ -254,6 +255,13 @@ tooltip label {
 #privacy-item {
   color: @urgent;
   padding: 0 2px;
+}
+
+#custom-recorder {
+  background: @urgent;
+  color: @bg;
+  border-color: @urgent;
+  font-weight: 700;
 }
 
 #custom-notification {

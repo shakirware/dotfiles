@@ -1,0 +1,7 @@
+# xdpw simple chooser requires "Monitor: <output>"
+
+[screencast]
+chooser_type=simple
+chooser_cmd=slurp -f 'Monitor: %o' -or
+exec_before=swaync-client --inhibitor-add xdg-desktop-portal-wlr --skip-wait >/dev/null 2>&1 || true
+exec_after=swaync-client --inhibitor-remove xdg-desktop-portal-wlr --skip-wait >/dev/null 2>&1 || true
