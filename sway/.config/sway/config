@@ -88,11 +88,18 @@ mode "resize" {
 }
 bindsym $mod+Shift+r mode "resize"
 
-# Multimedia and screenshot keys
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -1%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +1%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# Multimedia keys
+bindsym --locked XF86AudioMute exec swayosd-client --output-volume mute-toggle
+bindsym --locked XF86AudioLowerVolume exec swayosd-client --output-volume=-1
+bindsym --locked XF86AudioRaiseVolume exec swayosd-client --output-volume=+1
+bindsym --locked XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+
+# Media transport keys
+bindsym --locked XF86AudioPlay exec swayosd-client --playerctl play-pause
+bindsym --locked XF86AudioNext exec swayosd-client --playerctl next
+bindsym --locked XF86AudioPrev exec swayosd-client --playerctl prev
+
+# Screenshot keys
 bindsym Page_Up exec grim -g "$(slurp)" - | wl-copy
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
@@ -101,18 +108,12 @@ bindsym Shift+Page_Up exec ~/.local/bin/toggle-record-region
 # Application launchers
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
 
-# Decrease by 1%
-bindsym XF86MonBrightnessDown exec brightnessctl --device='intel_backlight' set 1%-
+# Backlight keys
+bindsym --locked XF86MonBrightnessDown exec swayosd-client --brightness=-1
+bindsym --locked XF86MonBrightnessUp exec swayosd-client --brightness=+1
 
-# Increase by 1%
-bindsym XF86MonBrightnessUp   exec brightnessctl --device='intel_backlight' set +1%
-
-
-# mpv
-for_window [app_id="mpv"] floating enable, sticky enable, resize set 640 360, move position 1260 30
-bindsym $mod+Shift+p [app_id="mpv"] opacity 0.25
-bindsym $mod+Shift+o [app_id="mpv"] opacity 1.0
-
+# Manual lock
+bindsym Ctrl+$mod+l exec --no-startup-id swaylock
 
 # Appearance settings
 gaps inner 10
@@ -121,7 +122,9 @@ default_border pixel 2
 
 # Start bar
 exec --no-startup-id waybar -c ~/.config/waybar/topbar.jsonc -s ~/.config/waybar/style.css
-exec --no-startup-id ~/.config/sway/scripts/mprisbar-watch.sh
+
+# On-screen display
+exec_always --no-startup-id sh -c 'pkill -x swayosd-server; exec swayosd-server'
 
 # Generate theme + set wallpaper at login
 exec --no-startup-id matugen image $wallpaper --source-color-index 0
@@ -136,10 +139,11 @@ bindsym $mod+Shift+b exec --no-startup-id pkill -SIGUSR1 -x waybar
 # Notifications
 exec --no-startup-id swaync
 bindsym $mod+Shift+n exec swaync-client -t -sw
+bindsym $mod+Shift+d exec swaync-client -d -sw
 
 # thunderbird
-assign [app_id="org.mozilla.Thunderbird"] workspace number 9
-exec --no-startup-id thunderbird
+# assign [app_id="org.mozilla.Thunderbird"] workspace number 9
+# exec --no-startup-id thunderbird
 
 # tray apps
 exec --no-startup-id tailscale systray
@@ -167,17 +171,13 @@ blur disable
 
 for_window [floating] corner_radius 16
 
-for_window [floating] corner_radius 16
-
-for_window [floating] corner_radius 16# Outputs
-output eDP-1 mode 2880x1800@120Hz scale 2 pos 0 0
-output HDMI-A-1 mode 1920x1200@59.950Hz scale 1 pos 1440 0
-output DP-1 mode 1920x1200@59.950Hz scale 1 pos 3360 0
+# Outputs
+exec_always --no-startup-id sh -c 'pkill -x kanshi; exec kanshi'
 
 # Workspace -> output assignment
 workspace 1 output eDP-1
-workspace 2 output HDMI-A-1
-workspace 3 output DP-1
+workspace 2 output DP-1 HDMI-A-1 eDP-1
+workspace 3 output HDMI-A-1 DP-1 eDP-1
 
 # System config includes
 include /etc/sway/config.d/*

@@ -26,6 +26,16 @@ rofi-wayland
 wl-clipboard
 grim
 swaybg
+matugen
+
+# --- desktop services ---
+swaync
+swayosd
+swaylock
+kanshi
+libnotify
+power-profiles-daemon
+blueman
 
 # --- networking / vpn ---
 networkmanager

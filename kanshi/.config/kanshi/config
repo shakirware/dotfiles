@@ -1,0 +1,25 @@
+# Connector names: swaymsg -t get_outputs
+
+# Laptop + DP + HDMI
+profile desk {
+	output eDP-1 enable mode 2880x1800@120Hz position 0,150 scale 2
+	output DP-1 enable mode 1920x1200@59.950Hz position 1440,0 scale 1
+	output HDMI-A-1 enable mode 1920x1200@59.950Hz position 3360,0 scale 1
+}
+
+# Laptop + DP
+profile laptop-dp {
+	output eDP-1 enable mode 2880x1800@120Hz position 0,150 scale 2
+	output DP-1 enable mode 1920x1200@59.950Hz position 1440,0 scale 1
+}
+
+# Laptop + HDMI
+profile laptop-hdmi {
+	output eDP-1 enable mode 2880x1800@120Hz position 0,150 scale 2
+	output HDMI-A-1 enable mode 1920x1200@59.950Hz position 1440,0 scale 1
+}
+
+# Laptop only
+profile laptop {
+	output eDP-1 enable mode 2880x1800@120Hz position 0,0 scale 2
+}

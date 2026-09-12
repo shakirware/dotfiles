@@ -22,7 +22,14 @@
   "cssPriority": "user",
   "ignore-gtk-theme": true,
 
-  "widgets": ["title", "dnd", "notifications"],
+  "widgets": [
+    "title",
+    "dnd",
+    "mpris",
+    "volume",
+    "backlight",
+    "notifications"
+  ],
 
   "widget-config": {
     "title": {
@@ -33,9 +40,24 @@
     "dnd": {
       "text": "Do Not Disturb"
     },
+    "mpris": {
+      "show-album-art": "when-available",
+      "blacklist": [],
+      "autohide": true,
+      "loop-carousel": false
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true,
+      "show-per-app-label": false
+    },
+    "backlight": {
+      "label": "󰃟",
+      "device": "intel_backlight",
+      "subsystem": "backlight"
+    },
     "notifications": {
-      "show-body": true,
-      "show-actions": true
+      "vexpand": true
     }
   }
 }
