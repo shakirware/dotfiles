@@ -74,7 +74,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Resize mode
-mode "resize" {
+mode "RESIZE" {
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -86,7 +86,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+r mode "resize"
+bindsym $mod+Shift+r mode "RESIZE"
 
 # Multimedia keys
 bindsym --locked XF86AudioMute exec swayosd-client --output-volume mute-toggle
@@ -112,6 +112,9 @@ bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
 bindsym --locked XF86MonBrightnessDown exec swayosd-client --brightness=-1
 bindsym --locked XF86MonBrightnessUp exec swayosd-client --brightness=+1
 
+# Clipboard history
+bindsym $mod+Shift+v exec --no-startup-id ~/.local/bin/rofi-cliphist
+
 # Manual lock
 bindsym Ctrl+$mod+l exec --no-startup-id swaylock
 
@@ -125,6 +128,10 @@ exec --no-startup-id waybar -c ~/.config/waybar/topbar.jsonc -s ~/.config/waybar
 
 # On-screen display
 exec_always --no-startup-id sh -c 'pkill -x swayosd-server; exec swayosd-server'
+
+# Clipboard watchers
+exec --no-startup-id wl-paste --type text --watch cliphist store
+exec --no-startup-id wl-paste --type image --watch cliphist store
 
 # Generate theme + set wallpaper at login
 exec --no-startup-id matugen image $wallpaper --source-color-index 0

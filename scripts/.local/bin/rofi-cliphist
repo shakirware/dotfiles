@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+theme="$HOME/.config/rofi/styles/style-1.rasi"
+
+selection=$(cliphist list |
+	rofi -dmenu -i -p "Clipboard" -theme "$theme" \
+		-theme-str 'listview { columns: 1; }') || exit 0
+
+[ -n "$selection" ] || exit 0
+
+printf '%s' "$selection" | cliphist decode | wl-copy

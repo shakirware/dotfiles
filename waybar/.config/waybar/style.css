@@ -225,6 +225,37 @@ tooltip label {
   min-height: 1px;
 }
 
+/* Contextual modules */
+#mode,
+#scratchpad,
+#privacy {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 30px;
+  padding: 2px 12px;
+  margin: 0 5px;
+}
+
+#mode {
+  background: @accent;
+  color: @bg;
+  border-color: @accent;
+  font-weight: 700;
+}
+
+#scratchpad:hover {
+  background: @surface2;
+}
+
+#privacy {
+  padding: 2px 10px;
+}
+
+#privacy-item {
+  color: @urgent;
+  padding: 0 2px;
+}
+
 #custom-notification {
   background: @surface;
   border: 1px solid @outline;

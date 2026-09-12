@@ -7,9 +7,15 @@
     "margin-right": 20,
     "margin-left": 20,
     "height": 30,
-    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "sway/scratchpad",
+      "sway/window",
+    ],
     "modules-center": ["clock"],
     "modules-right": [
+      "privacy",
       "cpu",
       "memory",
       "pulseaudio",
@@ -53,6 +59,25 @@
     "sway/window": {
       "hide-if-empty": true,
       "format": "{title}",
+    },
+    "sway/mode": {
+      "format": "󰩨 {}",
+      "tooltip": false,
+    },
+    "sway/scratchpad": {
+      "format": "󰐃 {count}",
+      "show-empty": false,
+      "tooltip": true,
+      "tooltip-format": "{app}: {title}",
+    },
+    "privacy": {
+      "icon-spacing": 6,
+      "icon-size": 14,
+      "transition-duration": 200,
+      "modules": [
+        { "type": "screenshare", "tooltip": true, "tooltip-icon-size": 20 },
+        { "type": "audio-in", "tooltip": true, "tooltip-icon-size": 20 },
+      ],
     },
     "battery": {
       "bat": "BAT0",

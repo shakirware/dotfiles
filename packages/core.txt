@@ -33,6 +33,7 @@ swaync
 swayosd
 swaylock
 kanshi
+cliphist
 libnotify
 power-profiles-daemon
 blueman
