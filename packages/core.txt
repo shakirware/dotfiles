@@ -20,9 +20,10 @@ starship
 neovim
 
 # --- wayland / sway / bar ---
-sway
+# swayfx (AUR): config uses corner_radius / blur
+swayfx
 waybar
-rofi-wayland
+rofi
 wl-clipboard
 grim
 slurp
