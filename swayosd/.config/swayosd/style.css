@@ -1,0 +1,43 @@
+@import url("../../.cache/matugen/swayosd.css");
+
+/* No padding here: it makes GTK measure the progress gizmo at min-width -2 */
+window#osd {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 24px;
+}
+
+window#osd #container {
+  margin: 16px;
+}
+
+window#osd image,
+window#osd label {
+  color: @fg;
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.5;
+}
+
+window#osd progressbar {
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+window#osd trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: alpha(@outline, 0.3);
+}
+
+window#osd progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @accent;
+}

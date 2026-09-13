@@ -133,7 +133,8 @@ exec_always --no-startup-id sh -c 'pkill -x swayosd-server; exec swayosd-server'
 exec --no-startup-id wl-paste --type text --watch cliphist store
 exec --no-startup-id wl-paste --type image --watch cliphist store
 
-# Generate theme + set wallpaper at login
+# Matugen owns the wallpaper
+swaybg_command -
 exec --no-startup-id matugen image $wallpaper --source-color-index 0
 
 # Toggle Waybar visibility

@@ -5,7 +5,7 @@ command = "sh -lc \"exec swaybg -m fill -i '{{image}}' >/dev/null 2>&1 &\""
 
 [templates.waybar]
 input_path  = "~/.config/matugen/templates/waybar.css"
-output_path = "~/.config/waybar/matugen.css"
+output_path = "~/.cache/matugen/waybar.css"
 post_hook   = "pkill -SIGUSR2 waybar || true"
 
 [templates.rofi]
@@ -25,6 +25,16 @@ output_path = "~/.cache/matugen/alacritty-colors.toml"
 input_path  = "~/.config/matugen/templates/tmux.conf"
 output_path = "~/.cache/matugen/tmux.conf"
 post_hook   = "sh -lc 'tmux source-file ~/.cache/matugen/tmux.conf \\; refresh-client -S >/dev/null 2>&1 || true'"
+
+[templates.swayosd]
+input_path  = "~/.config/matugen/templates/swayosd.css"
+output_path = "~/.cache/matugen/swayosd.css"
+# swayosd reads its CSS only at startup
+post_hook   = "sh -c 'pkill -x swayosd-server; setsid --fork swayosd-server >/dev/null 2>&1 </dev/null'"
+
+[templates.swaylock]
+input_path  = "~/.config/matugen/templates/swaylock.conf"
+output_path = "~/.config/swaylock/config"
 
 [templates.swaync]
 input_path  = "~/.config/matugen/templates/swaync.css"

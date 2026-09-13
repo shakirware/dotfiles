@@ -1,0 +1,7 @@
+@define-color bg {{colors.background.default.hex}};
+@define-color fg {{colors.on_background.default.hex}};
+@define-color surface {{colors.surface.default.hex}};
+@define-color surface2 {{colors.surface_variant.default.hex}};
+@define-color accent {{colors.primary.default.hex}};
+@define-color urgent {{colors.error.default.hex}};
+@define-color outline {{colors.outline.default.hex}};

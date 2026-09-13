@@ -186,3 +186,90 @@ progress {
   border-radius: 16px;
   box-shadow: none;
 }
+
+/* Media / volume / brightness widgets */
+
+.widget-mpris,
+.widget-volume,
+.widget-backlight {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.widget-mpris .widget-mpris-player {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.widget-mpris-album-art {
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.widget-mpris-subtitle {
+  color: alpha(@fg, 0.75);
+  font-size: 12px;
+}
+
+.widget-mpris button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 999px;
+  padding: 4px 8px;
+}
+
+.widget-mpris button:hover {
+  background: @surface2;
+}
+
+/* Sliders */
+.widget-volume trough,
+.widget-backlight trough,
+.widget-slider trough {
+  background: alpha(@outline, 0.25);
+  border: none;
+  border-radius: 999px;
+  min-height: 8px;
+}
+
+.widget-volume highlight,
+.widget-backlight highlight,
+.widget-slider highlight {
+  background: @accent;
+  border-radius: 999px;
+  min-height: 8px;
+}
+
+.widget-volume slider,
+.widget-backlight slider,
+.widget-slider slider {
+  background: @accent;
+  border: none;
+  border-radius: 999px;
+  box-shadow: none;
+  min-height: 14px;
+  min-width: 14px;
+}
+
+.widget-volume label,
+.widget-backlight label {
+  padding: 0 8px 0 0;
+}
+
+.widget-volume .per-app-volume {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
