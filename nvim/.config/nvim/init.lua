@@ -307,7 +307,7 @@ require('lazy').setup({
         make = { 'bake' },
         lua = { 'stylua' },
         python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
-        yaml = { 'prettier' },
+        -- yaml = { 'prettier' },
         yml = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
@@ -318,7 +318,7 @@ require('lazy').setup({
         typescriptreact = { 'prettier' },
         html = { 'prettier' },
         css = { 'prettier' },
-        sql = { 'pg_format' },
+        -- sql = { 'pg_format' },
       },
       formatters = {
         bake = {
