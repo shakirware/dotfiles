@@ -9,7 +9,7 @@ set $right l
 set $term alacritty
 set $menu rofi -show drun
 
-set $wallpaper ~/Pictures/a_road_with_a_road_in_the_middle_of_a_river.jpg
+set $wallpaper ~/Pictures/a_brown_building_with_two_doors.jpg
 
 # Launch terminal and manage windows
 bindsym $mod+Return exec $term
@@ -103,6 +103,9 @@ bindsym --locked XF86AudioPrev exec swayosd-client --playerctl prev
 bindsym Page_Up exec grim -g "$(slurp)" - | wl-copy
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
+# Annotated screenshot
+bindsym $mod+Page_Up exec grim -g "$(slurp)" - | satty -f -
+
 bindsym Shift+Page_Up exec ~/.local/bin/toggle-record-region
 
 # Application launchers
@@ -128,6 +131,9 @@ exec --no-startup-id waybar -c ~/.config/waybar/topbar.jsonc -s ~/.config/waybar
 
 # On-screen display
 exec_always --no-startup-id sh -c 'pkill -x swayosd-server; exec swayosd-server'
+
+# Night light
+exec --no-startup-id wlsunset -S 06:30 -s 18:30
 
 # Clipboard watchers
 exec --no-startup-id wl-paste --type text --watch cliphist store

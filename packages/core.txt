@@ -29,6 +29,8 @@ grim
 slurp
 swaybg
 matugen
+satty
+wlsunset
 
 # --- desktop services ---
 swaync
