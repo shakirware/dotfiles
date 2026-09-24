@@ -68,6 +68,8 @@ av() {
 
 alias mi='fd package.json --exec mise exec --cd={//} -- npm install'
 
+alias assume='source /usr/bin/assume'
+
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -85,3 +87,4 @@ wd() {
 wds() {
   sudo env PATH=/usr/bin:/bin:$PATH /usr/bin/waydroid "$@"
 }
+setopt interactivecomments

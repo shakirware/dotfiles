@@ -9,7 +9,7 @@ set $right l
 set $term alacritty
 set $menu rofi -show drun
 
-set $wallpaper ~/Pictures/a_brown_building_with_two_doors.jpg
+set $wallpaper ~/Pictures/a_black_and_white_building_with_a_fire_escape.jpg
 
 # Launch terminal and manage windows
 bindsym $mod+Return exec $term

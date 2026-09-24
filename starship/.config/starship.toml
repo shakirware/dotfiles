@@ -43,24 +43,31 @@ palette = 'default'
 
 [palettes.default]
 
-color_ok = 'bright-green'
-color_danger = 'bright-red'
-color_caution = 'bright-yellow'
+# Semantic states: saturated normal-tier hues so they stand out against the
+# dimmed meta colours below.
+color_ok = 'green'
+color_danger = 'red'
+color_caution = 'yellow'
 
-color_os = 'red'
-color_username = 'red'
+# Decorative identity: Material neutrals, so these carry the wallpaper tint
+# instead of reading as an error state.
+color_os = 'bright-white'
+color_username = 'white'
+
 color_directory = 'yellow'
 color_git = 'cyan'
-color_git_added = 'bright-green'
-color_git_deleted = 'bright-red'
+color_git_added = 'green'
+color_git_deleted = 'red'
 color_env = 'blue'
 color_kubernetes = 'purple'
 color_docker = 'blue'
-color_shell = ''
-color_container = ''
-color_other = ''
-color_time = ''
-color_duration = ''
+color_container = 'purple'
+
+# Meta / ambient info: dim, never competing with the command line.
+color_shell = 'bright-black'
+color_other = 'bright-black'
+color_time = 'bright-black'
+color_duration = 'bright-black'
 
 color_vimcmd_ok = 'green'
 color_vimcmd_replace = 'purple'

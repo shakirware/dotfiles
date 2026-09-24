@@ -1,24 +1,25 @@
+# Fallback palette, used only until ~/.cache/matugen/alacritty-colors.toml exists
+
 [colors.primary]
-background = "#000100"
-foreground = "#F9F0EA"
+background = "#19120c"
+foreground = "#efe0d6"
 
 [colors.normal]
-black   = "#000100"
-red     = "#617370"
-green   = "#97673F"
-yellow  = "#978828"
-blue    = "#9CA49D"
-magenta = "#E3A151"
-cyan    = "#EDD3C3"
-white   = "#EEE1D9"
+black   = "#51443b"
+red     = "#d06f6c"
+green   = "#6cd085"
+yellow  = "#d0b76c"
+blue    = "#6c96d0"
+magenta = "#d06cc0"
+cyan    = "#6cc0d0"
+white   = "#d6c3b6"
 
 [colors.bright]
-black   = "#A69D98"
-red     = "#617370"
-green   = "#97673F"
-yellow  = "#978828"
-blue    = "#9CA49D"
-magenta = "#E3A151"
-cyan    = "#EDD3C3"
-white   = "#EEE1D9"
-
+black   = "#9e8e82"
+red     = "#e2a4a2"
+green   = "#a2e2b2"
+yellow  = "#e2d2a2"
+blue    = "#a2bce2"
+magenta = "#e2a2d7"
+cyan    = "#a2d7e2"
+white   = "#efe0d6"
