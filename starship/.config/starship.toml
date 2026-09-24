@@ -43,14 +43,10 @@ palette = 'default'
 
 [palettes.default]
 
-# Semantic states: saturated normal-tier hues so they stand out against the
-# dimmed meta colours below.
 color_ok = 'green'
 color_danger = 'red'
 color_caution = 'yellow'
 
-# Decorative identity: Material neutrals, so these carry the wallpaper tint
-# instead of reading as an error state.
 color_os = 'bright-white'
 color_username = 'white'
 
@@ -63,7 +59,6 @@ color_kubernetes = 'purple'
 color_docker = 'blue'
 color_container = 'purple'
 
-# Meta / ambient info: dim, never competing with the command line.
 color_shell = 'bright-black'
 color_other = 'bright-black'
 color_time = 'bright-black'
